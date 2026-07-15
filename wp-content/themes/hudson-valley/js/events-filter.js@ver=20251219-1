@@ -1,0 +1,177 @@
+/**
+ * Events Region Filter
+ * Handles filtering of event cards by Hudson Valley region
+ * Reinitializes after Tribe Events AJAX pagination
+ */
+
+(function() {
+    let currentRegion = 'all';
+
+    // County to region mapping
+    const countyToRegion = {
+        // Upper Hudson Valley
+        'albany': 'upper',
+        'columbia': 'upper',
+        'greene': 'upper',
+        'rensselaer': 'upper',
+        'saratoga': 'upper',
+        'schenectady': 'upper',
+        'warren': 'upper',
+        'washington': 'upper',
+
+        // Mid Hudson Valley
+        'dutchess': 'mid',
+        'orange': 'mid',
+        'sullivan': 'mid',
+        'ulster': 'mid',
+
+        // Lower Hudson Valley
+        'putnam': 'lower',
+        'rockland': 'lower',
+        'westchester': 'lower'
+    };
+
+    function initializeFilters() {
+        const filterSection = document.querySelector('.events-filter-section');
+        const filterTabs = document.querySelectorAll('.events-filter .filter-tab');
+        const eventCards = document.querySelectorAll('.event-archive-item');
+
+        if (filterTabs.length === 0) {
+            return;
+        }
+
+        // Check if we're on past or future events page
+        const isPastEvents = document.querySelector('[data-view-rest-url*="tribe_event_display=past"]') !== null;
+        const urlParams = new URLSearchParams(window.location.search);
+        const isListView = !urlParams.has('tribe_event_display') || urlParams.get('tribe_event_display') === 'list';
+        const isPaged = urlParams.has('tribe_paged') && parseInt(urlParams.get('tribe_paged')) > 1;
+
+        // Hide filters if on past events or if paginated beyond first page
+        if (filterSection) {
+            if (isPastEvents || isPaged) {
+                filterSection.style.display = 'none';
+            } else {
+                filterSection.style.display = '';
+            }
+        }
+
+        // If filters are hidden, don't initialize
+        if (isPastEvents || isPaged) {
+            return;
+        }
+
+        // Detect county category from URL and set initial region
+        const pathParts = window.location.pathname.split('/');
+        const categoryIndex = pathParts.indexOf('category');
+        if (categoryIndex !== -1 && pathParts[categoryIndex + 1]) {
+            const countySlug = pathParts[categoryIndex + 1];
+            if (countyToRegion[countySlug]) {
+                currentRegion = countyToRegion[countySlug];
+            }
+        }
+
+        // Remove any existing click handlers to prevent duplicates
+        filterTabs.forEach(function(tab) {
+            const newTab = tab.cloneNode(true);
+            tab.parentNode.replaceChild(newTab, tab);
+        });
+
+        // Get fresh references after cloning
+        const freshFilterTabs = document.querySelectorAll('.events-filter .filter-tab');
+
+        // Restore active state to current region
+        freshFilterTabs.forEach(function(tab) {
+            if (tab.getAttribute('data-region') === currentRegion) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+
+        // Add click handlers
+        freshFilterTabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                currentRegion = this.getAttribute('data-region');
+
+                // Update active state on tabs
+                freshFilterTabs.forEach(function(t) {
+                    t.classList.remove('active');
+                });
+                this.classList.add('active');
+
+                // Filter cards
+                applyFilter();
+            });
+        });
+
+        // Apply current filter to newly loaded cards
+        if (currentRegion !== 'all') {
+            applyFilter();
+        }
+    }
+
+    function applyFilter() {
+        const eventCards = document.querySelectorAll('.event-archive-item');
+
+        eventCards.forEach(function(card) {
+            const cardRegion = card.getAttribute('data-region');
+
+            if (currentRegion === 'all' || cardRegion === currentRegion) {
+                card.style.display = '';
+                // Add fade-in animation
+                card.style.opacity = '0';
+                setTimeout(function() {
+                    card.style.transition = 'opacity 0.3s ease-in-out';
+                    card.style.opacity = '1';
+                }, 10);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Disable AJAX on Previous Events and Next Events links
+    function disableAjaxOnNavLinks() {
+        // Find Previous Events and Next Events links
+        const navLinks = document.querySelectorAll('.tribe-events-c-nav__list-item a, .tribe-events-c-nav__prev a, .tribe-events-c-nav__next a');
+
+        navLinks.forEach(function(link) {
+            const linkText = link.textContent.trim();
+
+            // Check if it's a Previous Events or Next Events link
+            if (linkText === 'Previous Events' || linkText === 'Next Events' ||
+                link.classList.contains('tribe-events-c-nav__prev-label') ||
+                link.classList.contains('tribe-events-c-nav__next-label')) {
+
+                // Add data attribute to disable AJAX
+                link.setAttribute('data-js', 'tribe-events-view-link-no-ajax');
+            }
+        });
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeFilters();
+        disableAjaxOnNavLinks();
+    });
+
+    // Reinitialize after Tribe Events AJAX updates
+    document.addEventListener('tribe_ev_ajaxSuccess', function() {
+        setTimeout(function() {
+            initializeFilters();
+            disableAjaxOnNavLinks();
+        }, 100);
+    });
+
+    // Also listen for general AJAX completion (fallback)
+    if (typeof jQuery !== 'undefined') {
+        jQuery(document).ajaxComplete(function(event, xhr, settings) {
+            if (settings.url && settings.url.indexOf('tribe_events') !== -1) {
+                setTimeout(function() {
+                    initializeFilters();
+                    disableAjaxOnNavLinks();
+                }, 100);
+            }
+        });
+    }
+})();
