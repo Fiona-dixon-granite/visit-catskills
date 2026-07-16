@@ -204,7 +204,44 @@ src="https://www.facebook.com/tr?id=1643322236960087&ev=PageView&noscript=1"
 <link rel='stylesheet' id='gform_theme-css' href='wp-content/plugins/gravityforms/assets/css/dist/theme.min.css@ver=2.10.5.css' media='all' />
 
 <style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.22.1" data-wpr-features="wpr_defer_js wpr_minify_js wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_minify_css wpr_cdn wpr_preload_links wpr_desktop" /></head>
-<body class="home wp-singular page-template-default page page-id-20197 wp-embed-responsive wp-theme-hudson-valley tribe-no-js">
+<body class="home wp-singular page-template-default page page-id-20197 wp-embed-responsive wp-theme-hudson-valley tribe-no-js site-locked">
+<div id="site-auth-overlay">
+    <form id="site-auth-form">
+        <img src="wp-content/themes/hudson-valley/img/logo.svg" alt="Visit Catskills" class="site-auth-logo">
+        <h1>This site is password protected</h1>
+        <p class="site-auth-error" id="site-auth-error" hidden>Incorrect username or password.</p>
+        <label for="site-auth-username">Username</label>
+        <input type="text" id="site-auth-username" autocomplete="username" required>
+        <label for="site-auth-password">Password</label>
+        <input type="password" id="site-auth-password" autocomplete="current-password" required>
+        <button type="submit">Enter</button>
+    </form>
+</div>
+<script>
+(function() {
+    var USERNAME = 'catskills';
+    var PASSWORD = 'catskills2026';
+    var body = document.body;
+
+    if (sessionStorage.getItem('siteAuthed') === 'true') {
+        body.classList.remove('site-locked');
+    }
+
+    document.getElementById('site-auth-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var u = document.getElementById('site-auth-username').value;
+        var p = document.getElementById('site-auth-password').value;
+        var error = document.getElementById('site-auth-error');
+        if (u === USERNAME && p === PASSWORD) {
+            sessionStorage.setItem('siteAuthed', 'true');
+            body.classList.remove('site-locked');
+            error.hidden = true;
+        } else {
+            error.hidden = false;
+        }
+    });
+})();
+</script>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe data-src="https://www.googletagmanager.com/ns.html?id=GTM-5XTQFL9L"
 height="0" width="0" style="display:none;visibility:hidden" src="about:blank" class="lazyload" data-load-mode="0"></iframe></noscript>

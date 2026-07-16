@@ -67,3 +67,15 @@ html,body{background-color:#fff}
 #catskills_map_home .ck-map-wrapper.has-hover.highlight-northern .ck-region-text-northern,
 #catskills_map_home .ck-map-wrapper.has-hover.highlight-eastern .ck-region-text-eastern,
 #catskills_map_home .ck-map-wrapper.has-hover.highlight-southern .ck-region-text-southern{fill:#fff}
+body.site-locked>*:not(#site-auth-overlay){display:none!important}
+#site-auth-overlay{display:none}
+body.site-locked #site-auth-overlay{display:flex;position:fixed;inset:0;background:#304F72;align-items:center;justify-content:center;z-index:9999;padding:20px}
+#site-auth-form{background:#fff;border-radius:12px;padding:40px;width:100%;max-width:380px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+#site-auth-form .site-auth-logo{width:150px;height:auto;margin:0 auto 24px;display:block;background:#304F72;border-radius:8px;padding:12px 16px}
+#site-auth-form h1{font-family:"Google Sans Flex",sans-serif;font-size:20px;font-weight:700;color:#304F72;margin:0 0 24px 0}
+#site-auth-form label{display:block;text-align:left;font-family:"Google Sans Flex",sans-serif;font-size:14px;font-weight:400;color:#5F6E7E;margin:16px 0 6px 0}
+#site-auth-form input{width:100%;padding:12px 14px;border:1px solid #ccc;border-radius:8px;font-size:16px;font-family:"Google Sans Flex",sans-serif}
+#site-auth-form input:focus{outline:none;border-color:#304F72}
+#site-auth-form button{width:100%;margin-top:24px;padding:14px;background:#F6A315;color:#1a1a1a;font-family:"Google Sans Flex",sans-serif;font-weight:700;font-size:16px;border:none;border-radius:1000px;cursor:pointer;transition:background .3s ease,color .3s ease}
+#site-auth-form button:hover{background:#304F72;color:#fff}
+.site-auth-error{color:#c0392b;font-size:14px;margin:0 0 12px 0;font-family:"Google Sans Flex",sans-serif}
