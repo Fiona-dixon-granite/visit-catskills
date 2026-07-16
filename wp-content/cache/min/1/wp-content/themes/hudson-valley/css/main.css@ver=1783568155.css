@@ -28,7 +28,7 @@ html,body{background-color:#fff}
 #quicklinks_home .quicklink-orange{background:#F6A315;color:#1a1a1a}
 #quicklinks_home .quicklink-blue{background:#6EC1E4;color:#1a1a1a}
 #quicklinks_home .quicklink-green{background:#61CE70;color:#1a1a1a}
-#catskills_map_home{background:#F2F4F6}
+#catskills_map_home{background:#F2F4F6;position:relative}
 #catskills_map_home .ck-map-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 0}
 @media(max-width:1024px){#catskills_map_home .ck-map-layout{grid-template-columns:1fr;gap:40px;padding:50px 0}}
 #catskills_map_home .ck-map-heading h2{color:#304F72;text-transform:uppercase;font-weight:600;font-size:36px;letter-spacing:.5px;margin:0;display:inline-block}
@@ -79,3 +79,6 @@ body.site-locked #site-auth-overlay{display:flex;position:fixed;inset:0;backgrou
 #site-auth-form button{width:100%;margin-top:24px;padding:14px;background:#F6A315;color:#1a1a1a;font-family:"Google Sans Flex",sans-serif;font-weight:700;font-size:16px;border:none;border-radius:1000px;cursor:pointer;transition:background .3s ease,color .3s ease}
 #site-auth-form button:hover{background:#304F72;color:#fff}
 .site-auth-error{color:#c0392b;font-size:14px;margin:0 0 12px 0;font-family:"Google Sans Flex",sans-serif}
+#catskills_map_home .ck-map-section-edge{position:absolute;top:0;right:0;width:320px;max-width:35%;transform:translateY(-100%);z-index:1;line-height:0;pointer-events:none}
+#catskills_map_home .ck-map-section-edge img{display:block;width:100%;height:auto}
+@media(max-width:1024px){#catskills_map_home .ck-map-section-edge{width:180px;max-width:45%}}
