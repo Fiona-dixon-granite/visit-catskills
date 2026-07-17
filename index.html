@@ -206,7 +206,7 @@ src="https://www.facebook.com/tr?id=1643322236960087&ev=PageView&noscript=1"
 <link rel='stylesheet' id='gform_theme-css' href='wp-content/plugins/gravityforms/assets/css/dist/theme.min.css@ver=2.10.5.css' media='all' />
 
 <style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><meta name="generator" content="WP Rocket 3.22.1" data-wpr-features="wpr_defer_js wpr_minify_js wpr_preconnect_external_domains wpr_automatic_lazy_rendering wpr_oci wpr_minify_css wpr_cdn wpr_preload_links wpr_desktop" /></head>
-<body class="home wp-singular page-template-default page page-id-20197 wp-embed-responsive wp-theme-hudson-valley tribe-no-js site-locked">
+<body class="home wp-singular page-template-default page page-id-20197 wp-embed-responsive wp-theme-hudson-valley tribe-no-js">
 <div id="site-auth-overlay">
     <form id="site-auth-form">
         <img src="wp-content/themes/hudson-valley/img/logo.svg" alt="Visit Catskills" class="site-auth-logo">
@@ -304,19 +304,19 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 		</div>
 
         <div  class="header-right">
-			<a href="#" target="_blank">
-            	<img data-src="visit-catskills-files/logos/I_Love_New_York.svg" alt="I Love NY" class="ilny-flag lazyload" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==">
-			</a>
-            <a href="#" class="search-link">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<a href="#" class="search-link">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
                     <path d="M20 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-                <span>Search</span>
+                <span class="visually-hidden">Search</span>
             </a>
+            <a href="#" target="_blank">
+            	<img data-src="visit-catskills-files/logos/I_Love_New_York.svg" alt="I Love NY" class="ilny-flag lazyload" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==">
+			</a>
         </div>
 
-        <a href="#" class="search-link-mobile">
+        <a href="#" class="search-link-mobile" aria-label="Search">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
                 <path d="M20 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -448,16 +448,20 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 	<div class="discovery-hero">
 		<!-- Background image slider -->
 		<div class="discovery-hero-bg" id="discovery-hero-slider" role="region" aria-roledescription="carousel" aria-label="Catskills scenery slideshow">
-			<div class="discovery-hero-slide is-active" aria-roledescription="slide" aria-label="1 of 3">
+			<div class="discovery-hero-slide is-active" aria-roledescription="slide" aria-label="1 of 4">
 				<img src="visit-catskills-files/images/fall-ziplining 1.jpg" alt="Two people ziplining above vibrant autumn foliage in the Catskill Mountains" class="discovery-hero-bg-img">
 			</div>
-			<div class="discovery-hero-slide" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
+			<div class="discovery-hero-slide" aria-roledescription="slide" aria-label="2 of 4" aria-hidden="true">
 				<img src="visit-catskills-files/images/ski-chairlift-catskills.jpg" alt="Skiers riding a chairlift over a snow-covered Catskills mountainside" class="discovery-hero-bg-img">
 			</div>
-			<div class="discovery-hero-slide" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
-				<img src="visit-catskills-files/images/girl-hiking-with-dog_0_0.jpg" alt="A woman hiking a Catskills trail with her dog" class="discovery-hero-bg-img">
+			<div class="discovery-hero-slide" aria-roledescription="slide" aria-label="3 of 4" aria-hidden="true">
+				<img src="visit-catskills-files/images/yayan-sopian-776565-unsplash_0.jpg" alt="A woman practicing a yoga tree pose on a wooded Catskills trail" class="discovery-hero-bg-img">
+			</div>
+			<div class="discovery-hero-slide" aria-roledescription="slide" aria-label="4 of 4" aria-hidden="true">
+				<img src="visit-catskills-files/images/catskills-kayaking.jpg" alt="A kayaker paddling through calm Catskills waterways" class="discovery-hero-bg-img">
 			</div>
 			<div class="discovery-hero-bg-overlay"></div>
+			<div class="discovery-hero-nav-overlay" aria-hidden="true"></div>
 
 			<div class="discovery-hero-controls">
 				<button type="button" class="discovery-hero-control-btn discovery-hero-prev" aria-label="Previous slide">
@@ -537,12 +541,32 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 .discovery-hero-slide:nth-child(2) .discovery-hero-bg-img{animation-direction:alternate-reverse}
 @keyframes discovery-hero-kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(-1.5%,-1.5%)}}
 .discovery-hero-bg.is-paused .discovery-hero-bg-img{animation-play-state:paused}
-.discovery-hero-bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.6) 100%)}
+.discovery-hero-bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.45) 55%, rgba(0,0,0,.75) 100%)}
+.discovery-hero-nav-overlay{position:absolute;top:0;left:0;right:0;height:160px;z-index:1;background:linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 100%)}
 .discovery-hero-controls{position:absolute;left:30px;bottom:30px;z-index:3;display:flex;align-items:center;gap:12px}
 .discovery-hero-control-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(0,0,0,.35);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .2s ease}
 .discovery-hero-control-btn:hover{background:rgba(0,0,0,.6)}
 .discovery-hero-control-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 @media(prefers-reduced-motion: reduce){.discovery-hero-slide .discovery-hero-bg-img{animation:none}}
+@media(max-width:767px){
+	.discovery-hero-search{max-width:none}
+	.discovery-hero-search-wrapper{flex-direction:row;flex-wrap:wrap}
+	.discovery-hero-county{width:auto;flex-shrink:0}
+	.discovery-hero-select{flex:0 0 auto;width:80px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+	.discovery-hero-input{width:auto;flex:1;min-width:0}
+	.discovery-hero-divider{display:block;height:24px}
+	.discovery-hero-controls{left:20px;bottom:15px}
+	.discovery-hero-control-btn{width:30px;height:30px}
+	.discovery-hero-content{margin-top:415px!important}
+	.discovery-hero-title{margin-bottom:0}
+	#header #logo{top:-5px}
+	#header #logo img{height:50px}
+	body.menu-open #header{background:#304F72;position:fixed}
+	#mobile-menu{top:72px;height:calc(100vh - 72px)}
+}
+.nav-main>ul>li>a{font-size:18px}
+#header .header-right .ilny-flag{width:50px}
+#header .header-right .search-link svg{width:32px;height:32px}
 </style>
 <script>
 (function(){
@@ -604,7 +628,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 })();
 </script>
 
-</section><section  class="gd-section gd-section--quicklinks width-  section_quicklinks section_home_quicklinks" id="quicklinks_home" >
+</section><section  class="gd-section gd-section--quicklinks width-  section_quicklinks section_home_quicklinks reveal-on-scroll" id="quicklinks_home" >
     <div class="quicklinks-wrapper">
         <div class="container">
             <div class="quicklinks-grid">
@@ -635,7 +659,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
             </div>
         </div>
     </div>
-</section><section  class="gd-section gd-section--cards margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cards section_home_cards" id="cards_home" >
+</section><section  class="gd-section gd-section--cards margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cards section_home_cards reveal-on-scroll" id="cards_home" >
     <div  class="cards-wrapper is-type-list is-format-square is-columns-4">
         <div class="container">
 			<div class="content"><h2>Your ultimate guide to visit Catskills, NY</h2>
@@ -683,7 +707,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
     </div>
 
 
-</section><section  class="gd-section gd-section--ck-map width-  section_catskills_map" id="catskills_map_home" >
+</section><section  class="gd-section gd-section--ck-map width-  section_catskills_map reveal-on-scroll" id="catskills_map_home" >
 <div class="ck-map-section-edge" aria-hidden="true">
     <img src="visit-catskills-files/images/mountain-border-grey.svg" alt="">
 </div>
@@ -928,7 +952,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </section>
-<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_home" >
+<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_home" >
 <div  class="mixed-content-wrapper">
     <div class="container  has-right  right-image  cols-30-70 ">
         <div class="left is-text">
@@ -946,7 +970,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			</div>
 	    </div>
 </div></section>
-<section  class="gd-section gd-section--cards margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cards section_home_blog" id="blog_home" >
+<section  class="gd-section gd-section--cards margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cards section_home_blog reveal-on-scroll" id="blog_home" >
     <div  class="cards-wrapper">
         <div class="container">
             <div class="content"><h2>The Catskills Compass</h2>
@@ -994,6 +1018,7 @@ document.addEventListener('DOMContentLoaded', function() {
 #blog_home .content{text-align:center;padding-bottom:45px}
 #blog_home .content h2{display:inline-block;color:#304F72;letter-spacing:.5px;border-bottom:none;padding-bottom:0;margin-bottom:0}
 #cards_home .content h2,#mixed_home .text h2,#catskills_map_home .ck-map-heading h2{text-transform:none}
+#cards_home .cards p{font-size:16px}
 #blog_home .content h2::after{content:"";display:block;width:150px;height:1px;background:#6EC1E4;margin:14px auto 0}
 #blog_home .cards-intro-text{color:#5F6E7E;font-size:20px;font-weight:400;text-align:center;max-width:800px;margin:24px auto 0}
 #blog_home .news-item a{background:#fff}
@@ -1001,28 +1026,15 @@ document.addEventListener('DOMContentLoaded', function() {
 #blog_home .news-item .date{color:#5F6E7E;font-size:16px;opacity:1}
 #blog_home .news-item .image img{transition:transform .4s ease}
 #discovery-hero_1 .discovery-hero-description{font-size:20px}
+@media(max-width:767px){
+	#gd-pb{gap:60px}
+	#cards_home .cards{column-gap:15px;row-gap:15px}
+}
+@media(max-width:600px){
+	#quicklinks_home .quicklink-card{flex-direction:row;align-items:center;justify-content:space-between;min-height:0;padding:20px 24px;gap:16px}
+}
 </style>
-<section  class="gd-section gd-section--cross-sell margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cross_sell section_6" id="cross_sell_6" >
-<div class="container">
-    <div class="cross-sell" style="background-color: #304F72;">
-        <!-- Background image (right side on desktop, bottom on mobile) -->
-		            <div class="bg-image">
-				<img width="404" height="371" data-src="visit-catskills-files/images/greene-county-fall-scenery.jpg" class="bg-img lazyload" alt="" decoding="async" data-srcset="visit-catskills-files/images/greene-county-fall-scenery.jpg" data-sizes="auto" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" style="--smush-placeholder-width: 404px; --smush-placeholder-aspect-ratio: 404/371;" data-original-sizes="(max-width: 404px) 100vw, 404px" />            </div>
-		
-        <!-- Main overlapping image (top center) -->
-		            <div class="main-image">
-				<img width="768" height="1028" data-src="visit-catskills-files/images/home-hero-1-1.jpg" class="main-img lazyload" alt="" decoding="async" data-srcset="visit-catskills-files/images/home-hero-1-1.jpg" data-sizes="auto" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" style="--smush-placeholder-width: 768px; --smush-placeholder-aspect-ratio: 768/1028;" data-original-sizes="(max-width: 768px) 100vw, 768px" />            </div>
-		
-        <!-- Content -->
-        <div class="cross-sell-content">
-            <div class="text">
-				<h2 style="text-align: center;">Looking to travel to the Hudson Valley?</h2>
-<p style="text-align: center;">Download our Regional Travel Guide to explore what the Hudson Valley has to offer.</p>
-				                    <a href="#" target="_blank"                       class="btn btn-white">Download PDF</a>
-				            </div>
-        </div>
-    </div>
-</div></section></div>
+</div>
 <footer id="site-footer" class="site-footer">
     <div class="container">
         <div class="site-footer-top">
@@ -1290,6 +1302,41 @@ gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_r
 			if (openToggle) openToggle.focus();
 		}
 	});
+})();
+</script>
+
+<style>
+.js-reveal-ready .reveal-on-scroll{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease}
+.js-reveal-ready .reveal-on-scroll.is-revealed{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion: reduce){
+	.reveal-on-scroll{opacity:1!important;transform:none!important;transition:none!important}
+}
+</style>
+<script>
+(function(){
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if(reduceMotion) return;
+
+	var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal-on-scroll'));
+	if(!targets.length) return;
+
+	document.documentElement.classList.add('js-reveal-ready');
+
+	if(!('IntersectionObserver' in window)){
+		targets.forEach(function(el){ el.classList.add('is-revealed'); });
+		return;
+	}
+
+	var observer = new IntersectionObserver(function(entries){
+		entries.forEach(function(entry){
+			if(entry.isIntersecting){
+				entry.target.classList.add('is-revealed');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+	targets.forEach(function(el){ observer.observe(el); });
 })();
 </script>
 
