@@ -446,10 +446,31 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 </div><div  id="gd-pb"><section  class="gd-section gd-section--discovery-hero width-  section_discovery-hero section_1" id="discovery-hero_1" >
 <div  class="discovery-hero-wrapper">
 	<div class="discovery-hero">
-		<!-- Background image -->
-		<div class="discovery-hero-bg">
-			<img src="visit-catskills-files/images/fall-ziplining 1.jpg" alt="Two people ziplining above vibrant autumn foliage in the Catskill Mountains" class="discovery-hero-bg-img">
+		<!-- Background image slider -->
+		<div class="discovery-hero-bg" id="discovery-hero-slider" role="region" aria-roledescription="carousel" aria-label="Catskills scenery slideshow">
+			<div class="discovery-hero-slide is-active" aria-roledescription="slide" aria-label="1 of 3">
+				<img src="visit-catskills-files/images/fall-ziplining 1.jpg" alt="Two people ziplining above vibrant autumn foliage in the Catskill Mountains" class="discovery-hero-bg-img">
+			</div>
+			<div class="discovery-hero-slide" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
+				<img src="visit-catskills-files/images/ski-chairlift-catskills.jpg" alt="Skiers riding a chairlift over a snow-covered Catskills mountainside" class="discovery-hero-bg-img">
+			</div>
+			<div class="discovery-hero-slide" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
+				<img src="visit-catskills-files/images/girl-hiking-with-dog_0_0.jpg" alt="A woman hiking a Catskills trail with her dog" class="discovery-hero-bg-img">
+			</div>
 			<div class="discovery-hero-bg-overlay"></div>
+
+			<div class="discovery-hero-controls">
+				<button type="button" class="discovery-hero-control-btn discovery-hero-prev" aria-label="Previous slide">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</button>
+				<button type="button" class="discovery-hero-control-btn discovery-hero-playpause" aria-label="Pause slideshow" aria-pressed="false">
+					<svg class="discovery-hero-icon-toggle" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+				</button>
+				<button type="button" class="discovery-hero-control-btn discovery-hero-next" aria-label="Next slide">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+				</button>
+			</div>
+			<div class="visually-hidden" aria-live="polite" id="discovery-hero-slide-status"></div>
 		</div>
 
 		<!-- Decorative mountain border -->
@@ -507,6 +528,81 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 			</div>
 		</div>
 	</div>
+
+<style>
+.visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.discovery-hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 2.2s ease;z-index:0}
+.discovery-hero-slide.is-active{opacity:1;z-index:1}
+.discovery-hero-slide .discovery-hero-bg-img{animation:discovery-hero-kenburns 16s ease-in-out infinite alternate}
+.discovery-hero-slide:nth-child(2) .discovery-hero-bg-img{animation-direction:alternate-reverse}
+@keyframes discovery-hero-kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(-1.5%,-1.5%)}}
+.discovery-hero-bg.is-paused .discovery-hero-bg-img{animation-play-state:paused}
+.discovery-hero-bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,.6) 100%)}
+.discovery-hero-controls{position:absolute;left:30px;bottom:30px;z-index:3;display:flex;align-items:center;gap:12px}
+.discovery-hero-control-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(0,0,0,.35);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:background .2s ease}
+.discovery-hero-control-btn:hover{background:rgba(0,0,0,.6)}
+.discovery-hero-control-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media(prefers-reduced-motion: reduce){.discovery-hero-slide .discovery-hero-bg-img{animation:none}}
+</style>
+<script>
+(function(){
+	var slider = document.getElementById('discovery-hero-slider');
+	if(!slider) return;
+	var slides = Array.prototype.slice.call(slider.querySelectorAll('.discovery-hero-slide'));
+	var prevBtn = slider.querySelector('.discovery-hero-prev');
+	var nextBtn = slider.querySelector('.discovery-hero-next');
+	var playPauseBtn = slider.querySelector('.discovery-hero-playpause');
+	var toggleIcon = playPauseBtn.querySelector('.discovery-hero-icon-toggle');
+	var pauseIconMarkup = '<rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>';
+	var playIconMarkup = '<path d="M7 5v14l12-7-12-7z" fill="currentColor"/>';
+	var status = document.getElementById('discovery-hero-slide-status');
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var current = 0;
+	var playing = !reduceMotion;
+	var timer = null;
+	var intervalMs = 8000;
+
+	function announce(index){
+		var img = slides[index].querySelector('img');
+		status.textContent = 'Slide ' + (index + 1) + ' of ' + slides.length + ': ' + img.alt;
+	}
+
+	function goTo(index){
+		slides[current].classList.remove('is-active');
+		slides[current].setAttribute('aria-hidden', 'true');
+		current = (index + slides.length) % slides.length;
+		slides[current].classList.add('is-active');
+		slides[current].setAttribute('aria-hidden', 'false');
+		announce(current);
+	}
+
+	function next(){ goTo(current + 1); }
+	function prev(){ goTo(current - 1); }
+
+	function startAutoplay(){
+		stopAutoplay();
+		timer = window.setInterval(next, intervalMs);
+	}
+	function stopAutoplay(){
+		if(timer){ window.clearInterval(timer); timer = null; }
+	}
+
+	function setPlaying(state){
+		playing = state;
+		slider.classList.toggle('is-paused', !playing);
+		playPauseBtn.setAttribute('aria-pressed', String(!playing));
+		playPauseBtn.setAttribute('aria-label', playing ? 'Pause slideshow' : 'Play slideshow');
+		toggleIcon.innerHTML = playing ? pauseIconMarkup : playIconMarkup;
+		if(playing){ startAutoplay(); } else { stopAutoplay(); }
+	}
+
+	prevBtn.addEventListener('click', function(){ prev(); });
+	nextBtn.addEventListener('click', function(){ next(); });
+	playPauseBtn.addEventListener('click', function(){ setPlaying(!playing); });
+
+	setPlaying(playing);
+})();
+</script>
 
 </section><section  class="gd-section gd-section--quicklinks width-  section_quicklinks section_home_quicklinks" id="quicklinks_home" >
     <div class="quicklinks-wrapper">
