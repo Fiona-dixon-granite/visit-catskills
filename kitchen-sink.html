@@ -1029,29 +1029,40 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 </div>
 </section>
-<section  class="gd-section gd-section--cross-sell margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cross_sell section_6 reveal-on-scroll" id="cross_sell_6" >
+<section  class="gd-section gd-section--cross-sell margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cross_sell section_6" id="cross_sell_6" >
+<div class="cross-sell-bg">
+	<img src="visit-catskills-files/images/ulster-AshokanReservoir_SB091417-ULSdrone2-17480-1.jpg" alt="" class="cross-sell-bg-img">
+	<div class="cross-sell-overlay"></div>
+</div>
 <div class="container">
-    <div class="cross-sell" style="background-color: #304F72;">
-        <!-- Background image (right side on desktop, bottom on mobile) -->
-		            <div class="bg-image">
-				<img width="404" height="371" data-src="visit-catskills-files/images/greene-county-fall-scenery.jpg" class="bg-img lazyload" alt="" decoding="async" data-srcset="visit-catskills-files/images/greene-county-fall-scenery.jpg" data-sizes="auto" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" style="--smush-placeholder-width: 404px; --smush-placeholder-aspect-ratio: 404/371;" data-original-sizes="(max-width: 404px) 100vw, 404px" />            </div>
-		
-        <!-- Main overlapping image (top center) -->
-		            <div class="main-image">
-				<img width="768" height="1028" data-src="visit-catskills-files/images/home-hero-1-1.jpg" class="main-img lazyload" alt="" decoding="async" data-srcset="visit-catskills-files/images/home-hero-1-1.jpg" data-sizes="auto" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==" style="--smush-placeholder-width: 768px; --smush-placeholder-aspect-ratio: 768/1028;" data-original-sizes="(max-width: 768px) 100vw, 768px" />            </div>
-		
-        <!-- Content -->
-        <div class="cross-sell-content">
-            <div class="text">
-				<h2 style="text-align: center;">Looking to travel to the Hudson Valley?</h2>
-<p style="text-align: center;">Download our Regional Travel Guide to explore what the Hudson Valley has to offer.</p>
-				                    <a href="#" target="_blank"                       class="btn btn-white">Download PDF</a>
-				            </div>
-        </div>
+    <div class="cross-sell-content">
+		<img src="visit-catskills-files/images/ulster-logo.svg" alt="Ulster County, New York" class="cross-sell-logo">
+		<h2>Visit the Ulster County website</h2>
+		<p>Ulster County is not a vacation. It is a destination for discovery. Seek for yourself and find places to stay, eat and play.</p>
+		<a href="#" target="_blank" rel="noopener" class="btn">Ulster County website</a>
     </div>
-</div></section>
+</div>
+<style>
+#cross_sell_6{position:relative;overflow:hidden;padding:80px 0}
+@media(max-width:1024px){#cross_sell_6{padding:50px 0}}
+#cross_sell_6 .cross-sell-bg{position:absolute;inset:0;z-index:0}
+#cross_sell_6 .cross-sell-bg-img{width:100%;height:100%;object-fit:cover;display:block}
+#cross_sell_6 .cross-sell-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+#cross_sell_6 .container{position:relative;z-index:1}
+#cross_sell_6 .cross-sell-content{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:800px;margin:0 auto}
+#cross_sell_6 .cross-sell-logo{width:110px;height:auto;margin-bottom:24px}
+#cross_sell_6 .cross-sell-content h2{display:inline-block;color:#fff;font-weight:600;font-size:36px;letter-spacing:.5px;margin:0}
+#cross_sell_6 .cross-sell-content h2::after{content:"";display:block;width:150px;height:1px;background:#6EC1E4;margin:14px auto 0}
+#cross_sell_6 .cross-sell-content p{color:rgba(255,255,255,.85);font-size:20px;font-weight:400;line-height:1.6;margin:24px 0 0 0}
+#cross_sell_6 .cross-sell-content .btn{display:inline-flex;align-items:center;background:#F6A315;color:#000!important;font-weight:700;font-size:16px;padding:16px 36px;height:auto;line-height:1;border:none;border-radius:1000px;text-decoration:none;transition:background .3s ease,color .3s ease;margin-top:24px}
+#cross_sell_6 .cross-sell-content .btn:hover{background:#304F72;color:#fff!important}
+</style>
+</section>
 </div>
 <footer id="site-footer" class="site-footer">
+    <div class="ck-map-section-edge footer-edge" aria-hidden="true">
+        <img src="visit-catskills-files/images/mountain-border-navy.svg" alt="">
+    </div>
     <div class="container">
         <div class="site-footer-top">
             <div class="site-footer-newsletter">
@@ -1142,7 +1153,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </footer>
 <style>
 .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.site-footer{background:#304F72;padding:60px 0 30px;color:#fff}
+.site-footer{background:#304F72;padding:60px 0 30px;color:#fff;position:relative;overflow:visible}
+.footer-edge{position:absolute;top:0;right:0;width:320px;max-width:35%;transform:translateY(calc(-100% + 1px));z-index:2;line-height:0;pointer-events:none}
+.footer-edge img{display:block;width:100%;height:auto}
+@media(max-width:1024px){.footer-edge{width:180px;max-width:45%}}
 .site-footer .container{max-width:1400px;margin:0 auto;padding:0 24px}
 .site-footer h3{font-size:20px;font-weight:700;color:#fff;margin:0 0 20px;line-height:1.2}
 .site-footer p{font-size:16px;font-weight:400;color:rgba(255,255,255,.85);margin:0;line-height:1.3}
