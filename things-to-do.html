@@ -193,7 +193,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="text wysiwyg gd-offset">
 				<h2>Scenic Touring</h2>
 <p>Grab your keys or rent a car and head to the Catskills for an unforgettable road trip! With scenic vistas, exceptional eateries, and unlimited outdoor exploration, the region is home to a wide variety of unique experiences.</p>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/Eoo4HzILB-M?si=cqYp0DBqK_OxNHZR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <p><a class="btn" href="#" target="_blank" rel="noopener">Plan Your Road Trip</a></p>
             </div>
 
@@ -219,7 +218,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	if(!wrapper) return;
 	var btn = wrapper.querySelector('.video-play-icon');
 	btn.addEventListener('click', function(){
-		wrapper.innerHTML = '<iframe class="video-embed" src="https://www.youtube.com/watch?v=Eoo4HzILB-M" title="YouTube video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+		var id = wrapper.getAttribute('data-youtube-id');
+		wrapper.innerHTML = '<iframe class="video-embed" src="https://www.youtube.com/embed/' + id + '?autoplay=1" title="YouTube video player" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 	});
 })();
 </script>
