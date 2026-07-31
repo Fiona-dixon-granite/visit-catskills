@@ -389,6 +389,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
 #blog_home{background:#F5F3F0;padding:50px 0;margin-bottom:-100px}
 @media(min-width:1025px){#blog_home{padding:80px 0}}
+@media(max-width:767px){#blog_home{margin-bottom:-30px}}
+@media(min-width:768px) and (max-width:1024px){#blog_home{margin-bottom:-50px}}
 #blog_home .content{text-align:center;padding-bottom:45px}
 #blog_home .content h2{display:inline-block;color:#304F72;letter-spacing:.5px;border-bottom:none;padding-bottom:0;margin-bottom:0}
 #blog_home .content h2::after{content:"";display:block;width:150px;height:1px;background:#6EC1E4;margin:14px auto 0}
@@ -422,6 +424,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
 #cross_sell_1{position:relative;overflow:hidden;padding:80px 0;margin-bottom:-100px;min-height:500px;display:flex;align-items:center}
 @media(max-width:1024px){#cross_sell_1{padding:50px 0}}
+@media(max-width:767px){#cross_sell_1{min-height:360px}}
+@media(min-width:768px) and (max-width:1024px){#cross_sell_1{min-height:400px}}
 #cross_sell_1 .cross-sell-bg{position:absolute;inset:0;z-index:0}
 #cross_sell_1 .cross-sell-bg-img{width:100%;height:100%;object-fit:cover;display:block}
 #cross_sell_1 .cross-sell-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
@@ -564,6 +568,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .site-footer-social-icon svg{width:22px;height:22px}
 .site-footer-social-icon:hover{background:#F6A315;color:#1a1a1a}
 .site-footer-social-icon:focus-visible{outline:2px solid #fff;outline-offset:2px}
+</style>
+<style>
+/* Tablet layout refinement: stack mixed-content columns instead of the cramped 33/55 split (desktop unaffected) */
+@media(min-width:768px) and (max-width:1024px){
+	.gd-section--mixed .container.cols-30-70,
+	.gd-section--mixed .container.cols-70-30{grid-template-columns:1fr!important;gap:24px!important}
+	.gd-section--mixed .container.has-right.right-image{display:flex;flex-direction:column-reverse}
+}
 </style>
 </body>
 </html>

@@ -1360,7 +1360,14 @@ gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_r
 	targets.forEach(function(el){ observer.observe(el); });
 })();
 </script>
-
+<style>
+/* Tablet layout refinement: stack mixed-content columns instead of the cramped 33/55 split (desktop unaffected) */
+@media(min-width:768px) and (max-width:1024px){
+	.gd-section--mixed .container.cols-30-70,
+	.gd-section--mixed .container.cols-70-30{grid-template-columns:1fr!important;gap:24px!important}
+	.gd-section--mixed .container.has-right.right-image{display:flex;flex-direction:column-reverse}
+}
+</style>
 </body>
 </html>
 <!--
