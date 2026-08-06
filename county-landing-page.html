@@ -635,9 +635,9 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 #directory_3 .card-image{border-radius:12px;overflow:hidden;aspect-ratio:1/1;height:auto}
 #directory_3 .card-image img{width:100%;height:100%;object-fit:cover}
 #directory_3 .card-county{color:#304F72}
-#directory_3 .card-content{gap:15px}
+#directory_3 .card-content{gap:15px;text-align:center}
 #directory_3 .directory-index{margin-bottom:0}
-#directory_3 .directory-card{background:#F5F3F0}
+#directory_3 .directory-card{background:#fff}
 </style>
 	</section><section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_home" >
 <div class="ck-map-section-edge" aria-hidden="true">
@@ -1108,7 +1108,40 @@ gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_r
 	.gd-section--mixed .container.cols-70-30{grid-template-columns:1fr!important;gap:24px!important}
 	.gd-section--mixed .container.has-right.right-image{display:flex;flex-direction:column-reverse}
 }
+/* Move the mobile menu's I Love NY graphic closer to the last menu item */
+@media(max-width:1024px){#mobile-menu .mobile-menu-ilny{margin-top:30px;padding-top:0}#mobile-menu .mobile-menu-inner-wrapper .container{padding-bottom:0}}
+/* Reposition the search modal close icon to the top-right of the screen, all sizes */
+.search-overlay .search-overlay-close{position:fixed;top:30px;right:30px;width:44px;height:44px;padding:0}
+.search-overlay .search-overlay-close svg{width:44px;height:44px}
 </style>
+<script>
+(function(){
+	var overlay = document.getElementById('search-overlay');
+	if(!overlay) return;
+	function getFocusable(){
+		return Array.prototype.slice.call(overlay.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(el){ return el.getClientRects().length > 0; });
+	}
+	document.addEventListener('keydown', function(e){
+		if(e.key !== 'Tab') return;
+		if(!overlay.classList.contains('is-active')) return;
+		var focusable = getFocusable();
+		if(focusable.length === 0) return;
+		var first = focusable[0];
+		var last = focusable[focusable.length - 1];
+		if(e.shiftKey){
+			if(document.activeElement === first || !overlay.contains(document.activeElement)){
+				e.preventDefault();
+				last.focus();
+			}
+		} else {
+			if(document.activeElement === last || !overlay.contains(document.activeElement)){
+				e.preventDefault();
+				first.focus();
+			}
+		}
+	});
+})();
+</script>
 </body>
 </html>
 <!--

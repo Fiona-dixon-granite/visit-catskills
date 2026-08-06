@@ -558,7 +558,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
                         <div class="image"><img width="1024" height="683" src="visit-catskills-files/images/cafe-hotel-clair.jpg" class="attachment-large size-large wp-post-image" alt="" decoding="async" /></div>
                         <div class="news-content">
                             <h3>Best Places for Coffee in the Catskills</h3>
-                            <p class="date">September 26th, 2024</p>
+                            <p class="date"><img alt="" class="calendar-icon" src="https://travelhudsonvalley.com/wp-content/themes/hudson-valley/img/icon-calendar.svg" />September 26th, 2024</p>
                         </div>
                     </a>
                 </div>
@@ -568,7 +568,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
                         <div class="image"><img width="1024" height="682" src="visit-catskills-files/images/forestburgh-winter.jpg" class="attachment-large size-large wp-post-image" alt="" decoding="async" /></div>
                         <div class="news-content">
                             <h3>Beyond the Slopes: Winter in the Catskills</h3>
-                            <p class="date">September 26th, 2024</p>
+                            <p class="date"><img alt="" class="calendar-icon" src="https://travelhudsonvalley.com/wp-content/themes/hudson-valley/img/icon-calendar.svg" />September 26th, 2024</p>
                         </div>
                     </a>
                 </div>
@@ -578,7 +578,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
                         <div class="image"><img width="1024" height="684" src="visit-catskills-files/images/girl-hiking-with-dog_0_0.jpg" class="attachment-large size-large wp-post-image" alt="" decoding="async" /></div>
                         <div class="news-content">
                             <h3>Pet Friendly Catskills Vacations</h3>
-                            <p class="date">September 26th, 2024</p>
+                            <p class="date"><img alt="" class="calendar-icon" src="https://travelhudsonvalley.com/wp-content/themes/hudson-valley/img/icon-calendar.svg" />September 26th, 2024</p>
                         </div>
                     </a>
                 </div>
@@ -596,7 +596,8 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 #blog_home .cards-intro-text{color:#5F6E7E;font-size:20px;font-weight:400;text-align:center;max-width:800px;margin:24px auto 0}
 #blog_home .news-item a{background:#fff}
 #blog_home .news-item h3{color:#304F72;font-size:24px}
-#blog_home .news-item .date{color:#5F6E7E;font-size:16px;opacity:1}
+#blog_home .news-item .date{color:#5F6E7E;font-size:16px;opacity:1;display:flex;align-items:center;gap:8px}
+#blog_home .news-item .date .calendar-icon{width:16px;height:16px;flex-shrink:0}
 #blog_home .news-item .image img{transition:transform .4s ease}
 #blog_home .compass-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:50px}
 #blog_home .compass-pagination-list{display:flex;align-items:center;gap:8px;list-style:none;margin:0;padding:0}
@@ -849,6 +850,40 @@ gform.initializeOnLoaded( function() { jQuery(document).on('gform_post_render', 
 <script>window.addEventListener('DOMContentLoaded', function() {
 gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_render", [{ formId: "2", currentPage: "1", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_2" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_2";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_2" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 2, 1 );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );
 });</script>
-
+<style>
+/* Move the mobile menu's I Love NY graphic closer to the last menu item */
+@media(max-width:1024px){#mobile-menu .mobile-menu-ilny{margin-top:30px;padding-top:0}#mobile-menu .mobile-menu-inner-wrapper .container{padding-bottom:0}}
+/* Reposition the search modal close icon to the top-right of the screen, all sizes */
+.search-overlay .search-overlay-close{position:fixed;top:30px;right:30px;width:44px;height:44px;padding:0}
+.search-overlay .search-overlay-close svg{width:44px;height:44px}
+</style>
+<script>
+(function(){
+	var overlay = document.getElementById('search-overlay');
+	if(!overlay) return;
+	function getFocusable(){
+		return Array.prototype.slice.call(overlay.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(el){ return el.getClientRects().length > 0; });
+	}
+	document.addEventListener('keydown', function(e){
+		if(e.key !== 'Tab') return;
+		if(!overlay.classList.contains('is-active')) return;
+		var focusable = getFocusable();
+		if(focusable.length === 0) return;
+		var first = focusable[0];
+		var last = focusable[focusable.length - 1];
+		if(e.shiftKey){
+			if(document.activeElement === first || !overlay.contains(document.activeElement)){
+				e.preventDefault();
+				last.focus();
+			}
+		} else {
+			if(document.activeElement === last || !overlay.contains(document.activeElement)){
+				e.preventDefault();
+				first.focus();
+			}
+		}
+	});
+})();
+</script>
 </body>
 </html>

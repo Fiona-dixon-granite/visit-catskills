@@ -106,7 +106,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 <span class="visually-hidden">Search</span>
             </a>
             <a href="#" target="_blank">
-            	<img data-src="visit-catskills-files/logos/I_Love_New_York.svg" alt="I Love NY" class="ilny-flag lazyload" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==">
+            	<img src="visit-catskills-files/logos/I_Love_New_York.svg" alt="I Love NY" class="ilny-flag">
 			</a>
         </div>
 
@@ -128,7 +128,140 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	body.menu-open #header{background:#304F72;position:fixed}
 	#mobile-menu{top:72px;height:calc(100vh - 72px)}
 }
+/* Reposition the search modal close icon to the top-right of the screen, all sizes */
+.search-overlay .search-overlay-close{position:fixed;top:30px;right:30px;width:44px;height:44px;padding:0}
+.search-overlay .search-overlay-close svg{width:44px;height:44px}
+/* Move the mobile menu's I Love NY graphic closer to the last menu item */
+@media(max-width:1024px){#mobile-menu .mobile-menu-ilny{margin-top:30px;padding-top:0}#mobile-menu .mobile-menu-inner-wrapper .container{padding-bottom:0}}
 </style>
+
+<div  id="mobile-menu">
+    <div  class="mobile-menu-inner-wrapper">
+        <div  class="container">
+            <div class="mobile-menu-inner">
+                <div class="mobile-menu-item has-submenu">
+                    <div class="mobile-menu-item-header">
+                        <a href="#" class="mobile-menu-link">Things to Do</a>
+                        <span class="mobile-menu-toggle">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="#243C96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="mobile-submenu">
+                        <a href="#" class="mobile-submenu-link">Scenic Touring</a>
+                        <a href="#" class="mobile-submenu-link">Outdoor Recreation</a>
+                        <a href="#" class="mobile-submenu-link">Family Vacation</a>
+                        <a href="#" class="mobile-submenu-link">Biking</a>
+                        <a href="#" class="mobile-submenu-link">Arts &amp; Culture</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-item has-submenu">
+                    <div class="mobile-menu-item-header">
+                        <a href="#" class="mobile-menu-link">Lodging</a>
+                        <span class="mobile-menu-toggle">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="#243C96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="mobile-submenu">
+                        <a href="#" class="mobile-submenu-link">Cabins &amp; Cottages</a>
+                        <a href="#" class="mobile-submenu-link">Farm Stays</a>
+                        <a href="#" class="mobile-submenu-link">Glamping</a>
+                        <a href="#" class="mobile-submenu-link">Hotels &amp; Resorts</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-item has-submenu">
+                    <div class="mobile-menu-item-header">
+                        <a href="#" class="mobile-menu-link">Food &amp; Drink</a>
+                        <span class="mobile-menu-toggle">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6L8 10L12 6" stroke="#243C96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="mobile-submenu">
+                        <a href="#" class="mobile-submenu-link">Restaurants</a>
+                        <a href="#" class="mobile-submenu-link">Bakeries</a>
+                        <a href="#" class="mobile-submenu-link">Diners</a>
+                        <a href="#" class="mobile-submenu-link">Coffee Shops</a>
+                        <a href="#" class="mobile-submenu-link">Breweries</a>
+                        <a href="#" class="mobile-submenu-link">Wineries</a>
+                        <a href="#" class="mobile-submenu-link">Cideries</a>
+                    </div>
+                </div>
+                <div class="mobile-menu-item ">
+                    <div class="mobile-menu-item-header">
+                        <a href="#" class="mobile-menu-link">Plan Your Trip</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div  class="mobile-menu-ilny">
+        <div  class="container">
+            <img src="visit-catskills-files/logos/I_Love_New_York.svg" alt="I Love NY">
+        </div>
+    </div>
+</div>
+
+<div  id="search-overlay" class="search-overlay">
+    <div  class="search-overlay-content">
+        <button class="search-overlay-close" aria-label="Close search">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div  class="container">
+            <form role="search" method="get" class="search-form" action="#">
+                <div class="search-form-wrapper">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="search-icon">
+                        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M20 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input type="search"
+                           class="search-field"
+                           placeholder="Search..."
+                           value=""
+                           name="s"
+                           autocomplete="off"
+                           aria-label="Search">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+(function(){
+	var overlay = document.getElementById('search-overlay');
+	if(!overlay) return;
+	function getFocusable(){
+		return Array.prototype.slice.call(overlay.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(el){ return el.getClientRects().length > 0; });
+	}
+	document.addEventListener('keydown', function(e){
+		if(e.key !== 'Tab') return;
+		if(!overlay.classList.contains('is-active')) return;
+		var focusable = getFocusable();
+		if(focusable.length === 0) return;
+		var first = focusable[0];
+		var last = focusable[focusable.length - 1];
+		if(e.shiftKey){
+			if(document.activeElement === first || !overlay.contains(document.activeElement)){
+				e.preventDefault();
+				last.focus();
+			}
+		} else {
+			if(document.activeElement === last || !overlay.contains(document.activeElement)){
+				e.preventDefault();
+				first.focus();
+			}
+		}
+	});
+})();
+</script>
+<script data-minify="1" id="gd-main-js" src="wp-content/cache/min/1/wp-content/themes/hudson-valley/js/main.js@ver=1783568155" data-rocket-defer defer></script>
 <div  id="gd-pb"><section  class="gd-section gd-section--hero margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_hero section_1" id="hero_1" >
 <div  class="hero-wrapper hero-type-main hero-bg-red">
 	            <div class="hero-main">
@@ -797,15 +930,15 @@ document.addEventListener('DOMContentLoaded', function() {
 #events_4 .events-grid{gap:32px 24px}
 @media(min-width:768px) and (max-width:1024px){#events_4 .events-grid{grid-template-columns:repeat(2,1fr);gap:32px;padding:0}}
 @media(min-width:1025px){#events_4 .events-grid{grid-template-columns:repeat(3,1fr);gap:32px;padding:0}}
-#events_4 .event-card{background:transparent;border-radius:16px;overflow:visible;box-shadow:none}
+#events_4 .event-card{background:transparent;border-radius:12px;overflow:visible;box-shadow:none}
 #events_4 .event-card-link{position:relative;display:block}
-#events_4 .event-image{width:100%;height:auto;aspect-ratio:4/5;padding-left:0;border-radius:16px}
+#events_4 .event-image{width:100%;height:auto;aspect-ratio:4/5;padding-left:0;border-radius:12px}
 #events_4 .event-image::before{display:none}
-#events_4 .event-image img{border-radius:16px;width:100%;height:100%;object-fit:cover}
+#events_4 .event-image img{border-radius:12px;width:100%;height:100%;object-fit:cover}
 #events_4 .event-content{position:absolute;left:15px;right:15px;bottom:15px;margin-top:0;padding:20px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);z-index:1}
 #events_4 .event-title{color:#304F72;font-size:20px;font-weight:700;margin:0 0 16px}
 #events_4 .event-meta{display:flex;flex-direction:column;gap:8px}
-#events_4 .event-date,#events_4 .event-venue{gap:8px;color:#5F6E7E;font-size:15px}
+#events_4 .event-date,#events_4 .event-venue{gap:8px;color:#5F6E7E;font-size:16px}
 #events_4 .event-date svg,#events_4 .event-venue svg{color:#304F72;width:18px;height:18px;margin-top:0}
 #events_4 .event-meta::after{content:"Event details";display:inline-flex;align-self:flex-start;align-items:center;justify-content:center;width:fit-content;margin-top:16px;background:#F6A315;color:#000;font-weight:700;font-size:14px;padding:12px 24px;border-radius:999px}
 #events_4 .compass-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:50px}
