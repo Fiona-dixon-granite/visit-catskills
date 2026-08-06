@@ -308,7 +308,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </style>
 </section>
-<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_1" >
+<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_1" >
 <div  class="mixed-content-wrapper">
     <div class="container  has-left  left-image  cols-70-30 ">
         <div class="left is-image">
@@ -358,7 +358,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })();
 </script>
 </section>
-<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_2" >
+<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_2" >
 <div class="ck-map-section-edge" aria-hidden="true">
     <img src="visit-catskills-files/images/mountain-border-grey.svg" alt="">
 </div>
@@ -392,7 +392,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @media(max-width:1024px){#mixed_2 .ck-map-section-edge{width:180px;max-width:45%}}
 </style>
 </section>
-<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_3" >
+<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_3" >
 <div  class="mixed-content-wrapper">
     <div class="container  has-left  left-image  cols-70-30 ">
         <div class="left is-image">
@@ -419,7 +419,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 #mixed_3 .text .btn:hover{background:#304F72;color:#fff!important;opacity:1}
 </style>
 </section>
-<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_4" >
+<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_4" >
 <div class="ck-map-section-edge" aria-hidden="true">
     <img src="visit-catskills-files/images/mountain-border-grey.svg" alt="">
 </div>
@@ -453,7 +453,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 @media(max-width:1024px){#mixed_4 .ck-map-section-edge{width:180px;max-width:45%}}
 </style>
 </section>
-<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_5" >
+<section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_5" >
 <div  class="mixed-content-wrapper">
     <div class="container  has-left  left-image  cols-70-30 ">
         <div class="left is-image">
@@ -480,7 +480,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 #mixed_5 .text .btn:hover{background:#304F72;color:#fff!important;opacity:1}
 </style>
 </section>
-<section  class="gd-section gd-section--cards margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cards section_home_blog" id="blog_home" >
+<section  class="gd-section gd-section--cards margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cards section_home_blog reveal-on-scroll" id="blog_home" >
     <div  class="cards-wrapper">
         <div class="container">
             <div class="content"><h2>You May Also Like&hellip;</h2>
@@ -543,7 +543,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 #blog_home .compass-pagination-arrow[aria-disabled="true"]{opacity:.4;pointer-events:none}
 </style>
 </section>
-<section  class="gd-section gd-section--cross-sell margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cross_sell section_6" id="cross_sell_1" >
+<section  class="gd-section gd-section--cross-sell margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cross_sell section_6 reveal-on-scroll" id="cross_sell_1" >
 <div class="cross-sell-bg">
 	<img src="visit-catskills-files/images/sullivan-county.jpg" alt="" class="cross-sell-bg-img">
 	<div class="cross-sell-overlay"></div>
@@ -711,5 +711,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	.gd-section--mixed .container.has-right.right-image{display:flex;flex-direction:column-reverse}
 }
 </style>
+<style>
+.js-reveal-ready .reveal-on-scroll{opacity:0;transform:translateY(56px) scale(.96);transition:opacity 1.1s cubic-bezier(.16,.8,.3,1) .15s, transform 1.1s cubic-bezier(.16,.8,.3,1) .15s}
+.js-reveal-ready .reveal-on-scroll.is-revealed{opacity:1;transform:translateY(0) scale(1)}
+@media(prefers-reduced-motion: reduce){
+	.reveal-on-scroll{opacity:1!important;transform:none!important;transition:none!important}
+}
+</style>
+<script>
+(function(){
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if(reduceMotion) return;
+
+	var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal-on-scroll'));
+	if(!targets.length) return;
+
+	document.documentElement.classList.add('js-reveal-ready');
+
+	if(!('IntersectionObserver' in window)){
+		targets.forEach(function(el){ el.classList.add('is-revealed'); });
+		return;
+	}
+
+	// Anything already at least partly visible on load should just be visible —
+	// only reveal-animate components that are genuinely below the fold.
+	var toObserve = [];
+	targets.forEach(function(el){
+		var rect = el.getBoundingClientRect();
+		if(rect.top < window.innerHeight){
+			el.classList.add('is-revealed');
+		} else {
+			toObserve.push(el);
+		}
+	});
+
+	var observer = new IntersectionObserver(function(entries){
+		entries.forEach(function(entry){
+			if(entry.isIntersecting){
+				entry.target.classList.add('is-revealed');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+	toObserve.forEach(function(el){ observer.observe(el); });
+})();
+</script>
 </body>
 </html>

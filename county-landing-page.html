@@ -595,7 +595,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 	setPlaying(playing);
 })();
 </script>
-</section><section  class="gd-section gd-section--text margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_text section_2" id="text_2" >
+</section><section  class="gd-section gd-section--text margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_text section_2 reveal-on-scroll" id="text_2" >
 <div  class="container">
 	<p>Ulster County has a quarter million acres of land protected for recreational use. With 350 miles of hiking and biking trails, streams for fishing, and 35 peaks for skiing and snowshoeing, Ulster County lures nature lovers year-round. The Hudson River provides cruises, kayaking, canoeing and sailing, with access from many locations.</p>
 </div>
@@ -604,7 +604,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 #text_2 p{font-size:22px;color:#304F72;max-width:900px;margin-left:auto;margin-right:auto;text-align:center}
 @media(max-width:1024px){#text_2{padding-bottom:15px}}
 </style>
-</section><section  class="gd-section gd-section--directory margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_directory section_3" id="directory_3" >    <div  class="directory-index">
+</section><section  class="gd-section gd-section--directory margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_directory section_3 reveal-on-scroll" id="directory_3" >    <div  class="directory-index">
         <div class="container">
 			                <div class="directory-title">
                     <div class="title-content"><h2>Things to do in Ulster County</h2>
@@ -739,7 +739,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 #directory_3 .directory-index{margin-bottom:0}
 #directory_3 .directory-card{background:#fff}
 </style>
-	</section><section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_home" >
+	</section><section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_home" >
 <div class="ck-map-section-edge" aria-hidden="true">
     <img src="visit-catskills-files/images/mountain-border-grey.svg" alt="">
 </div>
@@ -768,7 +768,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 #mixed_home .ck-map-section-edge img{display:block;width:100%;height:auto}
 @media(max-width:1024px){#mixed_home .ck-map-section-edge{width:180px;max-width:45%}}
 </style>
-</section><section  class="gd-section gd-section--gallery margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_gallery section_gallery_1" id="gallery_1" >
+</section><section  class="gd-section gd-section--gallery margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_gallery section_gallery_1 reveal-on-scroll" id="gallery_1" >
 <link data-minify="1" rel="stylesheet" href="wp-content/cache/min/1/ajax/libs/Swiper/10.0.4/swiper-bundle.min.css@ver=1783568155.css">
 <script data-minify="1" src="wp-content/cache/min/1/ajax/libs/Swiper/10.0.4/swiper-bundle.min.js@ver=1783568155"></script>
 
@@ -894,7 +894,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
         prevBtn.addEventListener('click', function(){ gallerySwiper1.slidePrev(); });
         nextBtn.addEventListener('click', function(){ gallerySwiper1.slideNext(); });
     })();
-    </script></section><section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed" id="mixed_home_2" >
+    </script></section><section  class="gd-section gd-section--mixed margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_mixed section_home_mixed reveal-on-scroll" id="mixed_home_2" >
 <div  class="mixed-content-wrapper">
     <div class="container  has-left  left-image  cols-70-30 ">
         <div class="left is-image">
@@ -930,7 +930,7 @@ height="0" width="0" style="display:none;visibility:hidden" src="about:blank" cl
 #mixed_home_2 .video-play-icon:hover circle{fill:#F6A315}
 </style>
 </section>
-<section  class="gd-section gd-section--cross-sell margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cross_sell section_6" id="cross_sell_6" >
+<section  class="gd-section gd-section--cross-sell margin-top-none margin-bottom-none padding-top-none padding-bottom-none width-  section_cross_sell section_6 reveal-on-scroll" id="cross_sell_6" >
 <div class="cross-sell-bg">
 	<img src="visit-catskills-files/images/ulster-AshokanReservoir_SB091417-ULSdrone2-17480-1.jpg" alt="" class="cross-sell-bg-img">
 	<div class="cross-sell-overlay"></div>
@@ -1240,6 +1240,52 @@ gform.initializeOnLoaded( function() {jQuery(document).trigger("gform_pre_post_r
 			}
 		}
 	});
+})();
+</script>
+<style>
+.js-reveal-ready .reveal-on-scroll{opacity:0;transform:translateY(56px) scale(.96);transition:opacity 1.1s cubic-bezier(.16,.8,.3,1) .15s, transform 1.1s cubic-bezier(.16,.8,.3,1) .15s}
+.js-reveal-ready .reveal-on-scroll.is-revealed{opacity:1;transform:translateY(0) scale(1)}
+@media(prefers-reduced-motion: reduce){
+	.reveal-on-scroll{opacity:1!important;transform:none!important;transition:none!important}
+}
+</style>
+<script>
+(function(){
+	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if(reduceMotion) return;
+
+	var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal-on-scroll'));
+	if(!targets.length) return;
+
+	document.documentElement.classList.add('js-reveal-ready');
+
+	if(!('IntersectionObserver' in window)){
+		targets.forEach(function(el){ el.classList.add('is-revealed'); });
+		return;
+	}
+
+	// Anything already at least partly visible on load should just be visible —
+	// only reveal-animate components that are genuinely below the fold.
+	var toObserve = [];
+	targets.forEach(function(el){
+		var rect = el.getBoundingClientRect();
+		if(rect.top < window.innerHeight){
+			el.classList.add('is-revealed');
+		} else {
+			toObserve.push(el);
+		}
+	});
+
+	var observer = new IntersectionObserver(function(entries){
+		entries.forEach(function(entry){
+			if(entry.isIntersecting){
+				entry.target.classList.add('is-revealed');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+	toObserve.forEach(function(el){ observer.observe(el); });
 })();
 </script>
 </body>
